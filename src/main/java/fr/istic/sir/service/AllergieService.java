@@ -42,7 +42,7 @@ public void delete(Long idAllergie) {
 }
   
  
-	public boolean isAllergieExist(Allergie allergie) {
+ public boolean isAllergieExist(Allergie allergie) {
 	return findOne(allergie.getIdAllergie()) != null;
 }
 	 	

@@ -70,7 +70,7 @@ public class Participant extends UserDoodle implements Serializable {
 		this.preferenceAlimentaire = preferenceAlimentaire;
 	}
 
-	@ManyToMany(cascade = CascadeType.ALL)
+	@ManyToMany(cascade = CascadeType.ALL, fetch= FetchType.LAZY)
 	@JoinTable(name = "Participant_Allergie", joinColumns=@JoinColumn(name="emailUtilisateur"),
 			   inverseJoinColumns=@JoinColumn(name="idAllergie"))
 	public Collection<Allergie> getAllergies() {
