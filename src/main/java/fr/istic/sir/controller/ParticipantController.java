@@ -73,13 +73,7 @@ return new ResponseEntity<>(participants, HttpStatus.OK);
 @ResponseBody
 public ResponseEntity< Participant > createParticipant(@RequestBody  Participant  participant, BindingResult result) {
      
-                if (result.hasErrors()){
-                return new ResponseEntity(new CustomErrorType("Données non conformes"),HttpStatus.BAD_REQUEST);
-                }    
-                else if (participantService.isParticipantExist(participant)) {
-		return new ResponseEntity(new CustomErrorType("Le participant avec le nom " + participant.getNom() + " existe deja."),HttpStatus.CONFLICT);
-	}
-                else participantService.save(participant);
+                 participantService.save(participant);
                
 return new ResponseEntity <Participant>(participant, HttpStatus.CREATED);
 }

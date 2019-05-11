@@ -74,33 +74,20 @@ return new ResponseEntity<>(sondageDateLieux, HttpStatus.OK);
 
 @RequestMapping(method = RequestMethod.POST, value = "/sondageDateLieu")
 @ResponseBody
-public ResponseEntity<List< SondageDateLieu >> createSondage(@RequestBody List< SondageDateLieu > sondageDateLieux, BindingResult result) {
+public ResponseEntity< SondageDateLieu > createSondage(@RequestBody  SondageDateLieu  sondageDateLieu, BindingResult result) {
 
 
-try {
-	Iterator<SondageDateLieu> iterator = sondageDateLieux.iterator();
-                
-                while(iterator.hasNext()){ 
+
                     
-                	SondageDateLieu sondageDateLieu = iterator.next();
-                    
-                if (result.hasErrors()){
-                return new ResponseEntity(new CustomErrorType("Données non conformes"),HttpStatus.BAD_REQUEST);
-                }    
-                else if (sondageDateLieuService.isSondageDateLieuExist(sondageDateLieu)) {
-		return new ResponseEntity(new CustomErrorType("Le participant avec le nom " + sondageDateLieu.getIdSondage() + " existe deja."),HttpStatus.CONFLICT);
-	}
-                else sondageDateLieuService.save(sondageDateLieu);
+                	 sondageDateLieuService.save(sondageDateLieu);
                 
        
-                }
-} catch (Exception e) {
-
-}
+                
 
 
 
-return new ResponseEntity <List<SondageDateLieu>>(sondageDateLieux, HttpStatus.CREATED);
+
+return new ResponseEntity <SondageDateLieu>(sondageDateLieu, HttpStatus.CREATED);
 }
 
 

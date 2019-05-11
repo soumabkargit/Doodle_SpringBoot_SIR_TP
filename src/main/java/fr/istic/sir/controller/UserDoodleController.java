@@ -73,14 +73,7 @@ return new ResponseEntity<>(userDoodles, HttpStatus.OK);
 public ResponseEntity< UserDoodle > createReunion(@RequestBody UserDoodle  userDoodle, BindingResult result) {
 
 
-                    
-                if (result.hasErrors()){
-                return new ResponseEntity(new CustomErrorType("Données non conformes"),HttpStatus.BAD_REQUEST);
-                }    
-                else if (userDoodleService.isUserDoodleExist(userDoodle)) {
-		return new ResponseEntity(new CustomErrorType("Le participant avec le nom " + userDoodle.getNom() + " existe deja."),HttpStatus.CONFLICT);
-	}
-                else userDoodleService.save(userDoodle);
+                 userDoodleService.save(userDoodle);
                 
  
 

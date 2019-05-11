@@ -77,14 +77,7 @@ return new ResponseEntity<>(sondageDates, HttpStatus.OK);
 public ResponseEntity< SondageDate > createSondage(@RequestBody  SondageDate  sondageDate, BindingResult result) {
 
 
-
-                if (result.hasErrors()){
-                return new ResponseEntity(new CustomErrorType("Données non conformes"),HttpStatus.BAD_REQUEST);
-                }    
-                else if (sondageDateService.isSondageDateExist(sondageDate)) {
-		return new ResponseEntity(new CustomErrorType("Le sondage avec le nom " + sondageDate.getIdSondage() + " existe deja."),HttpStatus.CONFLICT);
-	}
-                else sondageDateService.save(sondageDate);
+ sondageDateService.save(sondageDate);
                 
     
 

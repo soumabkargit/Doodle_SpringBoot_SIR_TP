@@ -70,13 +70,7 @@ public ResponseEntity<List<Allergie>> findAll() {
 @RequestMapping(method = RequestMethod.POST, value = "/allergie")
     @ResponseBody
 public ResponseEntity< Allergie > createAllergie(@RequestBody  Allergie allergie, BindingResult result) {
-	
-	 if (result.hasErrors()){
-         return new ResponseEntity(new CustomErrorType("Données non conformes"),HttpStatus.BAD_REQUEST);
-         }    
-         else if (allergieService.isAllergieExist(allergie)) {
-		return new ResponseEntity(new CustomErrorType("L allergie avec le libellé " + allergie.getLibelleAllergie() + " existe deja."),HttpStatus.CONFLICT);
-	}
+
 	 allergieService.save(allergie);
 	return new ResponseEntity <Allergie>(allergie, HttpStatus.CREATED);
 }
@@ -106,7 +100,7 @@ public ResponseEntity< Allergie > updateAllergie(@PathVariable("IdAllergie") lon
     
 
 @RequestMapping(method = RequestMethod.DELETE, value = "/allergie/{idAllergie}")
-public ResponseEntity<Allergie> deleteAllergie(@PathVariable("idAllergie") long idAllergie) {
+public ResponseEntity<Allergie> deleteAllergie(@PathVariable("idAllergie") Long idAllergie) {
         
 	Allergie allergie = allergieService.findOne(idAllergie);
                     

@@ -78,14 +78,7 @@ return new ResponseEntity<>(reunions, HttpStatus.OK);
 public ResponseEntity< Reunion > createReunion(@RequestBody  Reunion  reunion, BindingResult result) {
 
 
-                    
-                if (result.hasErrors()){
-                return new ResponseEntity(new CustomErrorType("Données non conformes"),HttpStatus.BAD_REQUEST);
-                }    
-                else if (reunionService.isReunionExist(reunion)) {
-		return new ResponseEntity(new CustomErrorType("La reunion avec le libelle : " + reunion.getIntitule() + " existe deja."),HttpStatus.CONFLICT);
-	}
-                else reunionService.save(reunion);
+               reunionService.save(reunion);
   
 return new ResponseEntity <Reunion>(reunion, HttpStatus.CREATED);
 }

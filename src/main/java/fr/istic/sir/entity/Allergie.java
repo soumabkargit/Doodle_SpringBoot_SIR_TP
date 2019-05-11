@@ -39,7 +39,7 @@ public class Allergie implements Serializable {
 		this.libelleAllergie = libelleAllergie;
 	}
 
-	@ManyToMany(cascade = CascadeType.ALL, fetch= FetchType.EAGER)
+	@ManyToMany(cascade = CascadeType.ALL)
 	public Collection<Participant> getParticipants() {
 		return participants;
 	}

@@ -72,14 +72,7 @@ return new ResponseEntity<>(utilisateurs, HttpStatus.OK);
 @ResponseBody
 public ResponseEntity< Utilisateur > createUtilisateur(@RequestBody Utilisateur  utilisateur, BindingResult result) {
 
-                    
-                if (result.hasErrors()){
-                return new ResponseEntity(new CustomErrorType("Données non conformes"),HttpStatus.BAD_REQUEST);
-                }    
-                else if (utilisateurService.isUtilisateurExist(utilisateur)) {
-		return new ResponseEntity(new CustomErrorType("L utilisateur avec le nom " + utilisateur.getNom() + " existe deja."),HttpStatus.CONFLICT);
-	}
-                else utilisateurService.save(utilisateur);
+                utilisateurService.save(utilisateur);
                 
   
 

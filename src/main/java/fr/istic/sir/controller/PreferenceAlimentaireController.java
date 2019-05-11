@@ -74,13 +74,7 @@ return new ResponseEntity<>(preferenceAlimentaires, HttpStatus.OK);
 @ResponseBody
 public ResponseEntity< PreferenceAlimentaire > createPreferenceAlimentaire(@RequestBody PreferenceAlimentaire  preferenceAlimentaire, BindingResult result) {
               
-                if (result.hasErrors()){
-                return new ResponseEntity(new CustomErrorType("Données non conformes"),HttpStatus.BAD_REQUEST);
-                }    
-                else if (preferenceAlimentaireService.isPreferenceAlimentaireExist(preferenceAlimentaire)) {
-		return new ResponseEntity(new CustomErrorType("Le participant avec le nom " + preferenceAlimentaire.getLibellePreferenceAlimentaire() + " existe deja."),HttpStatus.CONFLICT);
-	}
-                else preferenceAlimentaireService.save(preferenceAlimentaire);
+             preferenceAlimentaireService.save(preferenceAlimentaire);
    
 return new ResponseEntity <PreferenceAlimentaire>(preferenceAlimentaire, HttpStatus.CREATED);
 }

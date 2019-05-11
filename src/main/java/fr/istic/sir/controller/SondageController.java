@@ -77,13 +77,7 @@ public ResponseEntity< Sondage > createSondage(@RequestBody Sondage  sondage, Bi
 
 
 
-                if (result.hasErrors()){
-                return new ResponseEntity(new CustomErrorType("Données non conformes"),HttpStatus.BAD_REQUEST);
-                }    
-                else if (sondageService.isSondageExist(sondage)) {
-		return new ResponseEntity(new CustomErrorType("Le sondage avec le libellé " + sondage.getIdSondage() + " existe deja."),HttpStatus.CONFLICT);
-	}
-                else sondageService.save(sondage);
+                sondageService.save(sondage);
                 
        
 
