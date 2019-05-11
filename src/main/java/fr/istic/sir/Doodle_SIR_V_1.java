@@ -378,8 +378,8 @@ public class Doodle_SIR_V_1 {
 
     		Participant participantDateLieu = new Participant();
     		participantDateLieu.setEmailUtilisateur("mtouganroland@gmail.com");
-    		participantDateLieu.setNom("TOUGAN");
-    		participantDateLieu.setPrenom("Roland");
+    		participantDateLieu.setNom("tougan");
+    		participantDateLieu.setPrenom("ROLAND");
     		participantDateLieu.setAllergies(allergies0);
     		participantDateLieu.setPreferenceAlimentaire(preferenceAlimentaire0);
     		participantDateLieu.setSondageDateLieux(sondageDateLieux6);
@@ -475,8 +475,6 @@ public class Doodle_SIR_V_1 {
     			
     			serviceParticipantDaoImpl.save(participant);
 
-
-        	 
             };
             
         };

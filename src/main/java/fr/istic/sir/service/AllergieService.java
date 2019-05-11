@@ -9,9 +9,6 @@ import org.springframework.transaction.annotation.Transactional;
 import fr.istic.sir.entity.Allergie;
 import fr.istic.sir.repository.AllergieRepository;
 
-
-
-
 @Transactional
 @Service
 public class AllergieService {
